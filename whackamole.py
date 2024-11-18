@@ -1,6 +1,5 @@
 import pygame
 
-
 def main():
     try:
         pygame.init()
@@ -14,7 +13,11 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-            screen.fill("light green")
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    print(event.pos)
+            screen.fill("light blue")
+            screen.blit(mole_image, mole_image.get_rect(topleft=(0, 0)))
+            pygame.draw.line(screen, "dark blue", (32,0),(32,512))
             pygame.display.flip()
             clock.tick(60)
     finally:
